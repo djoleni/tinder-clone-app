@@ -1,0 +1,34 @@
+{
+  "name": "tinder-clone-app",
+  "version": "1.0.0",
+  "main": "api/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon api/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://djoleni@github.com/djoleni/tinder-clone-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/djoleni/tinder-clone-app/issues"
+  },
+  "homepage": "https://github.com/djoleni/tinder-clone-app#readme",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.6.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.13.2",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
