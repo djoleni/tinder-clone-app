@@ -1,0 +1,22 @@
+import {create} from 'zustand';
+import { axiosInstance } from '../lib/axios';
+import toast from 'react-hot-toast';
+
+export const useUserStore = create((set)=>({
+    loading: false,
+
+    updateProfile: async(data) => {
+        try{    
+            set({loading: true});
+            await axiosInstance.put("/users/update", data)
+            toast.success("Profile updated successfully");
+        } catch (error) {
+            const errorMessage = error?.response?.data?.message || "Something went wrong";
+            toast.error(errorMessage);
+        } finally{
+            set({loading: false})
+        }
+    },
+
+
+}))
