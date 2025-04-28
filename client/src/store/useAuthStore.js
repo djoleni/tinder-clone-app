@@ -14,7 +14,8 @@ export const useAuthStore = create((set) => ({
             set({authUser: res.data.user}) //na backendu returnujemo user
             toast.success("Account created successfully")
         } catch(error){
-            toast.error(error.response.data.message || "Something went wrong")
+            const errorMessage = error?.response?.data?.message || "Something went wrong";
+            toast.error(errorMessage);
         } finally{
             set({loading:false})
         }
