@@ -17,8 +17,8 @@ export const useAuthStore = create((set) => ({
             initializeSocket(res.data.user._id)
             toast.success("Account created successfully")
         } catch(error){
-            const errorMessage = error?.response?.data?.message || "Something went wrong";
-            toast.error(errorMessage);
+            const errorMessage = error?.response?.data?.message || error?.message || "Something went wrong";
+            toast.error(errorMessage); 
         } finally{
             set({loading:false})
         }
@@ -34,7 +34,8 @@ export const useAuthStore = create((set) => ({
             initializeSocket(res.data.user._id)
             toast.success("Logged in successfully");
         } catch(error){
-            toast.error(error.response.data.message || "Something went wrong");
+            const errorMessage = error?.response?.data?.message || error?.message || "Something went wrong";
+            toast.error(errorMessage); 
         } finally{
             set({loading:false})
         }
@@ -49,8 +50,8 @@ export const useAuthStore = create((set) => ({
                  toast.success("Logged out successfully")
                 }
         } catch(error){
-            toast.error(error.response.data.message || "Something went wrong");
-            console.log(error);
+            const errorMessage = error?.response?.data?.message || error?.message || "Something went wrong";
+            toast.error(errorMessage); 
         }
     },
 
@@ -67,6 +68,7 @@ export const useAuthStore = create((set) => ({
         }
     },
     
+    setAuthUser: (user) => set({authUser: user})
     
 
 

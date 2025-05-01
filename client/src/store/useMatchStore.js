@@ -19,8 +19,8 @@ export const useMatchStore = create((set)=> ({
            
         } catch (error) {
             set({matches: []})
-            const errorMessage = error?.response?.data?.message || "Something went wrong";
-            toast.error(errorMessage); 
+            const errorMessage = error?.response?.data?.message || error?.message || "Something went wrong";
+            toast.error(errorMessage);  
 
         } finally{
             set({isLoadingMyMatches:false})
@@ -36,7 +36,7 @@ export const useMatchStore = create((set)=> ({
            
         } catch (error) {
             set({userProfiles: []})
-            const errorMessage = error?.response?.data?.message || "Something went wrong";
+            const errorMessage = error?.response?.data?.message || error?.message || "Something went wrong";
             toast.error(errorMessage); 
 
         } finally{
