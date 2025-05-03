@@ -2,6 +2,8 @@ import express from 'express'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
 import cors from 'cors';
+import path from 'path';
+
 import {createServer} from 'http';
 
 import authRoutes from './routes/authRoutes.js'
@@ -20,6 +22,9 @@ const app = express();
 const httpServer = createServer(app);
 const PORT = process.env.PORT || 5000;
 
+const __dirname = path.resolve();
+
+
 initializeSocket(httpServer);
 
 app.use(express.json({limit: "5mb"}));
@@ -34,6 +39,15 @@ app.use('/api/auth', authRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/matches', matchRoutes)
 app.use('/api/messages', messageRoutes)
+
+
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static(path.join(__dirname, '/client/dist')))
+
+    app.get('*', (req,res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));  //for any route other than those above, send the react app 
+    })
+}
 
 
 
