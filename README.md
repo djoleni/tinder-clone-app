@@ -1,6 +1,5 @@
 # MERN Stack Projekat: Tinder Clone
 
-## Neke funkcionalnosti
 
 - ⚛️ **Tehnologije**: React.js, Node.js, Express, MongoDB, Tailwind CSS + DaisyUI
 - 🔐 **Autentifikacija** pomoću JSON Web Tokena (JWT)
@@ -102,8 +101,8 @@ npm run start
 
 ### Video demonstracija - Chatting Record (View Raw - download)
 
-[▶️ Pogledaj video - App Process](./client/public/project-media/chatting%20record.mp4)
+[▶️ Pogledaj video - Chatting](./client/public/project-media/chatting%20record.mp4)
 
 ### Video demonstracija - Swiping Process Record (View Raw - download)
 
-[▶️ Pogledaj video - Login/Logout](./client/public/project-media/swiping%20process%20record.mp4)
+[▶️ Pogledaj video - Swiping](./client/public/project-media/swiping%20process%20record.mp4)
